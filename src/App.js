@@ -1,21 +1,21 @@
 
 
-import './App.css';
+import './App.module.css';
 import ContactForm from './components/ContactForm'
 import ContactList from './components/ContactList'
 import Filter from './components/Filter'
-import Section from './components/Section';
+import Layout from './components/Layout/Layout';
 
 
-function App() {
+export default function App() {
     return (
-        <Section>
+        <Layout>
+            <div className={s.section}></div>
             <h1>Phonebook</h1>
             <ContactForm />
             <h2>Contacts</h2>
             <Filter />
             <ContactList />
-        </Section>
+        </Layout>
     );
 }
-export default App;
