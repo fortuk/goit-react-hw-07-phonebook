@@ -1,15 +1,14 @@
 import React from 'react';
 import s from './Filter.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { filterContact } from '../../redux/contacts/contacts-actions';
-import { getFilter } from '../../redux/contacts/contacts-selectors';
+import { phonebookAction, phonebookSelector } from '../../redux/contacts/phone-book';
 
 export default function Filter() {
-    const value = useSelector(getFilter);
+    const filter = useSelector(phonebookSelector.getFilter);
     const dispatch = useDispatch();
     return (
         <label className={s.label}>
-            <input type="text" value={value} onChange={e => dispatch(filterContact(e.target.value))} className={s.input} />
+            <input type="text" value={filter} onChange={e => dispatch(phonebookAction.changeFilter(e.target.value))} className={s.input} />
         </label>
     );
 }
